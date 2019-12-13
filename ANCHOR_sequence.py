@@ -45,7 +45,8 @@ def main():
         cmd = 'perl ./preprocess/sequence/create_motif_top3_ru_forward.pl ' + \
             the_tf + ' ' + \
             args.output + 'seq_forward/ ' + \
-            args.output + 'seq_forward_top3/'
+            args.output + 'seq_forward_top3/ ' + \
+            './data/ref/test_regions.blacklistfiltered.bed'
         os.system(cmd)
 
     # step11.1: scan TF-motif PWMs against the revese-complement DNA sequences; 60-120 minutes per TF per chr
@@ -65,7 +66,8 @@ def main():
         cmd = 'perl ./preprocess/sequence/create_motif_top3_ru_forward.pl ' + \
             the_tf + ' ' + \
             args.output + 'seq_reverse/ ' + \
-            args.output + 'seq_reverse_top3/'
+            args.output + 'seq_reverse_top3/ ' + \
+            './data/ref/test_regions.blacklistfiltered.bed'
         os.system(cmd)
 
     # step12: select the top 4 out of the top 6 = 3forward + 3reverse scores; 10 minutes per TF
